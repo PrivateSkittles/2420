@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment4", "D:\C Drive\Visual Studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\Assignment4.csproj", "{A95D6F03-0833-46DB-B9A5-2B5B255F540E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW4", "ConsoleApplication1\HW4.csproj", "{A95D6F03-0833-46DB-B9A5-2B5B255F540E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
