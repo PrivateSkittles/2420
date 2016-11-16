@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 
@@ -19,7 +20,7 @@ class List<T>
         T[] newArray = new T[underlyingArray.Length * 2];
         for (int i = 0; i < underlyingArray.Length; i++)
             newArray[i] = underlyingArray[i];
-        underlyingArray = newArray;    
+        underlyingArray = newArray;
     }
 
     public T this[int index]
@@ -40,4 +41,32 @@ class List<T>
     }
 
     public int Count { get; private set; }
+
+    public void clear()
+    {
+        T[] newArray = new T[underlyingArray.Length];
+        underlyingArray = newArray;
+    }
+
+    public bool contains(T item)
+    {
+        for (int i = 0; i < underlyingArray.Length; i++)
+        {          
+          if (underlyingArray[i].Equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int IndexOf(T item)
+    {
+        for (int i = 0; i < underlyingArray.Length; i++)
+        {
+            if (underlyingArray[i].Equals(item))
+                return i;
+        }
+        return -1;
+    }
 }

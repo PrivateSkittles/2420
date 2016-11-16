@@ -9,35 +9,25 @@ class MainClass
     {
         sorterGauntlet theGauntlet = new sorterGauntlet();
 
-        System.Console.WriteLine("Selection Sorter");
         theGauntlet.beatUpASorter(new selectionSorter());
-        Console.WriteLine();
-
-        System.Console.WriteLine("Insertion Sorter");
         theGauntlet.beatUpASorter(new insertionSorter());
-        Console.WriteLine();
-
-        System.Console.WriteLine("Bubble Sorter");
         theGauntlet.beatUpASorter(new bubbleSorter());
-        Console.WriteLine();
-
-        System.Console.WriteLine("Merge Sorter");
         theGauntlet.beatUpASorter(new mergeSorter());
-        Console.WriteLine();
-
-        Console.WriteLine("Quick Sorter");
         theGauntlet.beatUpASorter(new quickSorter());
-        Console.WriteLine();
 
         List<string> myList = new List<string>();
         Debug.Assert(myList.Count == 0);
         myList.Add("Jamie");
         myList.Add("Bob");
         myList.Add("Jill");
-        Debug.Assert(myList.Count == 3);
+        myList.Add("Sue");
+        Debug.Assert(myList.Count == 4);
 
-        List<int> myListOfInts = new List<int>();
-        myListOfInts.Add(5);
-        myListOfInts.Add(7);
+        bool doesListContain = myList.contains("Jill");
+        Debug.Assert(doesListContain == true);
+
+        int indexPos = myList.IndexOf("Bob");
+        Debug.Assert(indexPos == 1);
+
     } 
 }
