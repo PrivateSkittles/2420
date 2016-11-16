@@ -1,6 +1,5 @@
-﻿
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 class aStar
 {
@@ -16,19 +15,19 @@ class aStar
     }
 
 
-    public float distance(Node currentNode, Node goalNode)
+    public double distance(Node currentNode, Node goalNode)
     {
-        float startX = currentNode.location[0];
-        float startY = currentNode.location[1];
+        double startX = currentNode.location[0];
+        double startY = currentNode.location[1];
 
-        float endX = goalNode.location[0];
-        float endY = goalNode.location[1];
+        double endX = goalNode.location[0];
+        double endY = goalNode.location[1];
 
-        float nodeDistance = (float)Math.Sqrt(Math.Pow(endX - startX, 2) + Math.Pow(endY - startY, 2));
+        double nodeDistance = Math.Sqrt(Math.Pow(endX - startX, 2) + Math.Pow(endY - startY, 2));
         return nodeDistance;
     }
 
-    public Node initializeNode(float[] location, string name)
+    public Node initializeNode(double[] location, string name)
     {
         Node newNode = new Node();
         newNode.name = name;
@@ -95,37 +94,37 @@ class aStar
     public void setUpNodes(List<Node> nodeList)
     {
 
-        Node a = initializeNode(new float[2] { -19, 11 }, "A");
+        Node a = initializeNode(new double[2] { -19, 11 }, "A");
         nodeList.Add(a);
-        Node b = initializeNode(new float[2] { -13, 13 }, "B");
+        Node b = initializeNode(new double[2] { -13, 13 }, "B");
         nodeList.Add(b);
-        Node c = initializeNode(new float[2] { 4, 14 }, "C");
+        Node c = initializeNode(new double[2] { 4, 14 }, "C");
         nodeList.Add(c);
-        Node d = initializeNode(new float[2] { -4, 12 }, "D");
+        Node d = initializeNode(new double[2] { -4, 12 }, "D");
         nodeList.Add(d);
-        Node e = initializeNode(new float[2] { -8, 3 }, "E");
+        Node e = initializeNode(new double[2] { -8, 3 }, "E");
         nodeList.Add(e);
-        Node f = initializeNode(new float[2] { -18, 1 }, "F");
+        Node f = initializeNode(new double[2] { -18, 1 }, "F");
         nodeList.Add(f);
-        Node g = initializeNode(new float[2] { -12, -8 }, "G");
+        Node g = initializeNode(new double[2] { -12, -8 }, "G");
         nodeList.Add(g);
-        Node h = initializeNode(new float[2] { 12, -9 }, "H");
+        Node h = initializeNode(new double[2] { 12, -9 }, "H");
         nodeList.Add(h);
-        Node i = initializeNode(new float[2] { -18, -11 }, "I");
+        Node i = initializeNode(new double[2] { -18, -11 }, "I");
         nodeList.Add(i);
-        Node j = initializeNode(new float[2] { -4, -11 }, "J");
+        Node j = initializeNode(new double[2] { -4, -11 }, "J");
         nodeList.Add(j);
-        Node k = initializeNode(new float[2] { -12, -14 }, "K");
+        Node k = initializeNode(new double[2] { -12, -14 }, "K");
         nodeList.Add(k);
-        Node l = initializeNode(new float[2] { 2, -18 }, "L");
+        Node l = initializeNode(new double[2] { 2, -18 }, "L");
         nodeList.Add(l);
-        Node m = initializeNode(new float[2] { 18, -13 }, "M");
+        Node m = initializeNode(new double[2] { 18, -13 }, "M");
         nodeList.Add(m);
-        Node n = initializeNode(new float[2] { 4, -9 }, "N");
+        Node n = initializeNode(new double[2] { 4, -9 }, "N");
         nodeList.Add(n);
-        Node o = initializeNode(new float[2] { 22, 11 }, "O");
+        Node o = initializeNode(new double[2] { 22, 11 }, "O");
         nodeList.Add(o);
-        Node p = initializeNode(new float[2] { 18, 3 }, "P");
+        Node p = initializeNode(new double[2] { 18, 3 }, "P");
         nodeList.Add(p);
 
         a.connectedNodes.Add(b);
