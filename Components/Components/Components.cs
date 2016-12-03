@@ -23,15 +23,9 @@ class KeyboardMoverComponent : Component
     public override void Update()
     {
         Console.WriteLine();
-        Console.WriteLine("#######################");
-        Console.WriteLine("#######################");
+        Console.WriteLine("-------------------------");
         Console.WriteLine();
         Console.WriteLine("Which way to move?: WASD");
-        Console.WriteLine();
-        Console.WriteLine("_____________________");
-        Console.WriteLine("   Player Location   ");
-        Console.WriteLine("_____________________");
-        Console.WriteLine();
 
         char direction = Console.ReadKey().KeyChar;
         SpatialComponent spatial = Container.GetComponent<SpatialComponent>();
@@ -50,6 +44,12 @@ class KeyboardMoverComponent : Component
                 spatial.X += spatial.Speed;
                 break;
         }
+
+        Console.WriteLine();
+        Console.WriteLine("_____________________");
+        Console.WriteLine("   Player Location   ");
+        Console.WriteLine("_____________________");
+        Console.WriteLine();
     }
 }
 
@@ -60,7 +60,6 @@ class RenderComponent : Component
         NameComponent name = Container.GetComponent<NameComponent>();
         SpatialComponent spatial = Container.GetComponent<SpatialComponent>();
         Console.WriteLine(name.EntityName + " is at: (" + spatial.X + ", " + spatial.Y + ")");
-
     }
 }
 
@@ -148,16 +147,32 @@ class AIComponent : Component
     }
 }
 
-//class KillOnContactComponent : Component
-//{
-//    public Entity playerSpace;
-//    public override void Update()
-//    {
-//        SpatialComponent spatial = Container.GetComponent<SpatialComponent>();
-//        SpatialComponent spatialPlayer = playerSpace.GetComponent<SpatialComponent>();
-//        if (spatial.X == spatialPlayer.X && spatial.Y == spatialPlayer.Y)
-//            Console.WriteLine("GAME OVER");
+class KillOnContactComponent : Component
+{
+    public Entity playerSpace;
+    public bool isPlayerAlive = true;
+    public override void Update()
+    {
+        SpatialComponent spatial = Container.GetComponent<SpatialComponent>();
+        SpatialComponent spatialPlayer = playerSpace.GetComponent<SpatialComponent>();
+        if (spatial.X == spatialPlayer.X && spatial.Y == spatialPlayer.Y)
+            isPlayerAlive = false;
+    }
+}
 
-//    }
-//}
 
+class TurnCounterComponent : Component
+{
+    public bool didPlayerWin = false;
+    public int turn;
+    public override void Update()
+    {
+        if (didPlayerWin == false)
+        {
+            Console.WriteLine("Turns left to win: " + turn);
+            if (turn == 0)
+                didPlayerWin = true;
+            turn--;
+        }
+    }
+}
