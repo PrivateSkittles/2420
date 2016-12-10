@@ -49,18 +49,18 @@ class BinaryHeap
     {
         while ((sinkingValue * 2) <= currentSize)
         {
-            int minChild = findMinChild(sinkingValue);
-            if (heapList[sinkingValue] < heapList[minChild])
+            int maxChild = findMaxChild(sinkingValue);
+            if (heapList[sinkingValue] < heapList[maxChild])
             {
                 int temp = heapList[sinkingValue];
-                heapList[sinkingValue] = heapList[minChild];
-                heapList[minChild] = temp;
+                heapList[sinkingValue] = heapList[maxChild];
+                heapList[maxChild] = temp;
             }
-            sinkingValue = minChild;
+            sinkingValue = maxChild;
         }
     }
 
-    private int findMinChild(int i)
+    private int findMaxChild(int i)
     {
         if ((i * 2 + 1) > currentSize) //if there is only one child, return that child
             return i * 2;
